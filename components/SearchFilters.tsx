@@ -1,11 +1,12 @@
 import 'tailwindcss/tailwind.css';
-import React, { useState } from 'react';
+import React, { Component } from "react";
 
 export default class SearchFilters extends React.Component {
+
     render() {
         return (
-            <section className="flex justify-between bg-gray-800 px-4 py-3">
-                <div>
+            <section className="bg-gray-800">
+                <div className="flex justify-between px-4 py-3">
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg className="h-6 w-6 fill-current text-gray-600" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 50 50" enableBackground="new 0 0 50 50">
@@ -25,35 +26,78 @@ export default class SearchFilters extends React.Component {
                         <span className="text-white font-medium">Filters</span>
                     </button>
                 </div>
-                <div>
-                    <div>
-                        <div>
-                            <label>
-                                <span>Bedrooms</span>
-                                <select>
+                <form>
+                    <fieldset className="px-4 py-4 border-t border-gray-900">
+                        <div className="flex -mx-2">
+                            <label className="block w-1/2 px-2">
+                                <span className="text-sm font-semibold text-gray-500">Bedrooms</span>
+                                <select className="mt-1 block py-2 rounded-lg text-white bg-gray-700 w-full shadow">
                                     <option>4</option>
                                 </select>
                             </label>
-                            <label>
-                                <span>Bathrooms</span>
-                                <select>
+                            <label className="block w-1/2 px-2">
+                                <span className="text-sm font-semibold text-gray-500">Bathrooms</span>
+                                <select className="mt-1 block py-2 rounded-lg text-white bg-gray-700 w-full shadow">
                                     <option>4</option>
                                 </select>
                             </label>
                         </div>
-                        <div>
+                        <div className="mt-4">
                             <label>
-                                <span>Price Range</span>
-                                <select>
-                                    <option>Up to $2,000/wk</option>
+                                <span className="text-sm font-semibold text-gray-500">Price Range</span>
+                                <select className="mt-1 block py-2 rounded-lg text-white bg-gray-700 w-full shadow">
+                                    <option>Up to $2,000/wk</option >
                                 </select>
                             </label>
                         </div>
+                    </fieldset>
+                    <fieldset className="px-4 py-4 border-t border-gray-900">
+                        <span className="block text-sm font-semibold text-gray-500">Property Type</span>  
+                        <label className="flex item-center">
+                            <input className="bg-gray-700" type="radio" value="House" name="propertyType" />
+                            <span className="ml-2 text-white">House</span>
+                        </label>
+                        <label className="flex item-center">
+                            <input className="bg-gray-700" type="radio" value="apartment" name="propertyType" />
+                            <span className="ml-2 text-white">Apartment</span>
+                        </label>
+                        <label className="flex item-center">
+                            <input className="bg-gray-700" type="radio" value="loft" name="propertyType" />
+                            <span className="ml-2 text-white">Loft</span>
+                        </label>
+                        <label className="flex item-center">
+                            <input className="bg-gray-700" type="radio" value="townhouse" name="propertyType" />
+                            <span className="ml-2 text-white">Townhouse</span>
+                        </label>
+                    </fieldset>
+                    <fieldset className="px-4 py-4 border-t border-gray-900">
+                        <span className="text-sm font-semibold text-gray-500">Amenities</span>
+                        <label className="flex text-white">
+                            <input className="mr-2 font-gray-900" type="checkbox" name="balcony"/>Balcony
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="airCongitioning"/>Air Congitioning
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="pool"/>Pool
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="beach"/>Beach
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="petFriendly"/>Pet Friendly
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="kidFriendly"/>Kid Friendly
+                        </label>
+                        <label className="flex text-white">
+                            <input className="mr-2" type="checkbox" name="parking"/>Parking
+                        </label>
+                    </fieldset>
+                    <div className="bg-gray-900 px-4 py-4 ">
+                        <button className="block w-full bg-indigo-500 hover:bg-indigo-400 font-semibold rounded-lg text-white px-4 py-2">Update results</button>
                     </div>
-                    <div>
-                        
-                    </div>
-                </div>
+                </form>
             </section>
         );
     }
