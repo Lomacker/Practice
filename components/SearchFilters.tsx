@@ -53,20 +53,20 @@ export default class SearchFilters extends React.Component {
                     </fieldset>
                     <fieldset className="px-4 py-4 border-t border-gray-900">
                         <span className="block text-sm font-semibold text-gray-500">Property Type</span>  
-                        <label className="flex item-center">
-                            <input className="bg-gray-700" type="radio" value="House" name="propertyType" />
+                        <label className="mt-2 flex item-center">
+                            <input className="h-6 w-6 bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="radio" value="House" name="propertyType" />
                             <span className="ml-2 text-white">House</span>
                         </label>
-                        <label className="flex item-center">
-                            <input className="bg-gray-700" type="radio" value="apartment" name="propertyType" />
+                        <label className="mt-2 flex item-center">
+                            <input className="h-6 w-6 bg-gray-500" type="radio" value="apartment" name="propertyType" />
                             <span className="ml-2 text-white">Apartment</span>
                         </label>
-                        <label className="flex item-center">
-                            <input className="bg-gray-700" type="radio" value="loft" name="propertyType" />
+                        <label className="mt-2 flex item-center">
+                            <input className="h-6 w-6 bg-gray-500" type="radio" value="loft" name="propertyType" />
                             <span className="ml-2 text-white">Loft</span>
                         </label>
-                        <label className="flex item-center">
-                            <input className="bg-gray-700" type="radio" value="townhouse" name="propertyType" />
+                        <label className="mt-2 flex item-center">
+                            <input className="h-6 w-6 bg-gray-500" type="radio" value="townhouse" name="propertyType" />
                             <span className="ml-2 text-white">Townhouse</span>
                         </label>
                     </fieldset>
