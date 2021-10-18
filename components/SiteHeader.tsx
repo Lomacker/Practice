@@ -19,7 +19,7 @@ export default class SiteHeader extends React.Component {
   }
   render() {
     return (
-      <header className="bg-gray-900 sm:flex sm:items-center sm:justify-between">
+      <header className="bg-gray-900 sm:flex sm:items-center sm:justify-between xl:flex-shrink-0">
         <div className="flex justify-between item-center px-4 py-3">
           <div className="flex justify-between">
             <svg className="h-6 w-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g id="Layer_38" data-name="Layer 38"
