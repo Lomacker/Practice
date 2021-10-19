@@ -4,8 +4,8 @@ import React, { Component } from "react";
 export default class FiltersComponent extends React.Component {
     render() {
         return (
-            <form>
-                <div className="lg:flex xl:block">
+            <form className="xl:h-full xl:flex xl:flex-col xl:justify-between">
+                <div className="lg:flex xl:block xl:overflow-auto">
                     <div className="px-4 py-4 border-t border-gray-900 lg:w-1/3  xl:w-full">
                         <div className="flex flex-wrap -mx-2">
                             <label className="block w-1/2 px-2 sm:w-1/4 lg:w-1/2">
@@ -52,25 +52,25 @@ export default class FiltersComponent extends React.Component {
                     <div className="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
                         <span className="text-sm font-semibold text-gray-500">Amenities</span>
                         <div className="sm:flex sm:-mx-2 sm:flex-wrap">
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="balcony" />Balcony
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="pool" />Pool
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="beach" />Beach
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="petFriendly" />Pet Friendly
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="kidFriendly" />Kid Friendly
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="parking" />Parking
                             </label>
-                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-full">
+                            <label className="mt-2 flex text-white sm:w-1/4 sm:px-2 lg:w-full xl:w-full">
                                 <input className="mr-2 h-6 w-6 rounded-lg bg-gray-500 text-gray-500 focus:ring-gray-500 focus:text-gray-500" type="checkbox" name="airCongitioning" />Air Congitioning
                             </label>
                         </div>

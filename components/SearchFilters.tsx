@@ -10,6 +10,10 @@ export default class SearchFilters extends React.Component {
             visible: false
         };
 
+        this.state = {
+            invisible: false
+        };
+
         this.toggleMenu = this.toggleMenu.bind(this);
     }
 
@@ -42,7 +46,7 @@ export default class SearchFilters extends React.Component {
                 </div>
                 {this.state.visible
                     ? <FiltersComponent />
-                    : <div className="hidden xl:flex"><FiltersComponent /></div>
+                    : <div className="hidden xl:flex xl:h-full"><FiltersComponent /></div>
                 }
             </section>
         );

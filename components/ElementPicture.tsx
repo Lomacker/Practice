@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export default class ElementPicture extends React.Component {
     render() {
         return (
-            <div className="mt-8 sm:max-w-xs sm:w-full sm:flex-shrink-0 sm:px-2">
+            <div className="mt-6 sm:max-w-xs sm:w-full sm:flex-shrink-0 sm:px-2">
                 <div className="relative pb-5/6">
                     <img className="absolute inset-0 h-full rounded-lg shadow-md object-cover" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/brewster-mcleod-architects-1486154143.jpg" alt=""></img>
                 </div>
