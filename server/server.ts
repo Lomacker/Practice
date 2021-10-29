@@ -1,6 +1,8 @@
-const express = require('express');
-const next = require('next');
-const { Sequelize } = require('sequelize');
+import express from "express";
+import next from "next";
+import { Sequelize } from "sequelize";
+
+import bodyParser from "body-parser";
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -23,6 +25,17 @@ try {
 app.prepare().then(() => {
   const server = express()
 
+  server.use(bodyParser.urlencoded({ extended: false }))
+  server.use(bodyParser.json())
+
+  
+  server.post('/api/users', function (req, res) {
+    return res.json({
+      name: 'Hello World 1' 
+    });
+  });
+
+  
   server.all('*', (req, res) => {
     return handle(req, res)
   })
