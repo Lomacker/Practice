@@ -11,14 +11,13 @@ const prodConfig = {
     baseUrl: process.env.BASE_URL,
     dev: isDev,
     debug_mode: process.env.DEBUG_MODE,
- mysql: {
-        uri: process.env.MYSQL_URL || 'mysql://localhost:3306/mysqld',
-        options: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            poolSize: 10, // Maintain up to 10 socket connections
-            bufferMaxEntries: 0
-        }
+    db: {
+        host: '127.0.0.1',
+        database: 'librarydb',
+        username: 'lybrary',
+        password: 'qwerty_123',
+        dialect: 'mysql',
+        logging: false,
     },
 }
 

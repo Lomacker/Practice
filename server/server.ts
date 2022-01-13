@@ -4,6 +4,10 @@ import { Sequelize } from "sequelize";
 
 import bodyParser from "body-parser";
 
+import User from "./models/Users";
+import Order from "./models/Orders";
+import Book from "./models/Books";
+
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -27,11 +31,13 @@ app.prepare().then(() => {
 
   server.use(bodyParser.urlencoded({ extended: false }))
   server.use(bodyParser.json())
-
   
-  server.post('/api/users', function (req, res) {
-    return res.json({
-      name: 'Hello World 1' 
+  server.get('/api/users', function (req, res) {
+    console.log("dfgdfgdfg");
+    return Book.findAll().then(data => {
+      return res.json(data);
+    }).catch(err => {
+      res.status(401).json({error: 'Could not get user list'});
     });
   });
 

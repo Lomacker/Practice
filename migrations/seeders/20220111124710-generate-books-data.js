@@ -28,6 +28,7 @@ module.exports = {
             author: faker.name.findName(),
             yearPublishing: randomDate(new Date(2000, 0, 1), new Date()).getTime(),
             status: faker.random.arrayElement(booksStatus),
+            image: `https://robohash.org/${i}${j}.png?set=set4`,
             createdAt: Date.now(),
             updatedAt: Date.now()
           }

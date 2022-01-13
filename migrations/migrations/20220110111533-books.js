@@ -9,6 +9,7 @@ module.exports = {
       bookName varchar(255) DEFAULT NULL,
       author varchar(255) DEFAULT NULL,
       yearPublishing bigint unsigned DEFAULT NULL,
+      image varchar(300) DEFAULT NULL,
       status enum('IN_STOCK','MISSING') NOT NULL,
       createdAt bigint unsigned NOT NULL,
       updatedAt bigint unsigned NOT NULL,
