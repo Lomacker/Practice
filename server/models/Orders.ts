@@ -1,5 +1,7 @@
 import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize } from 'sequelize';
 import  db  from '../db';
+import Book from './Books';
+import User from './Users';
 
 interface IOrder extends Model{
     id: number;
@@ -43,4 +45,9 @@ const Order = <OrderType>db.define('orders', {
     },
 });
 
+Order.belongsTo(User, { as: 'user', foreignKey: 'id', onDelete: 'SET NULL' });
+Order.hasMany(Book, {as: 'books', sourceKey: 'id', foreignKey: 'order_id', onDelete:'SET NULL'});
+
 export default Order;
+
+

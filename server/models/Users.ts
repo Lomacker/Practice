@@ -1,6 +1,6 @@
 import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize } from 'sequelize';
 import  db  from '../db';
-import Order from "./Orders";
+import Order from './Orders';
 
 interface IUser extends Model{
     id: number;
@@ -26,28 +26,28 @@ const User = <UserType>db.define('users', {
     },
 
     firstName: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
     },
 
     lastName: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
     },
 
     role: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
         defaultValue: 'READER'
     },
 
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
     },
 
     password: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
     },
 
@@ -60,10 +60,6 @@ const User = <UserType>db.define('users', {
     },
 });
 
-User.belongsTo(Order);
-
-User.initModels = () => {
-    User.hasMany(Order, { as: 'orders', foreignKey: 'user_id', onDelete: 'SET NULL' });
-  }
+User.hasMany(Order, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
 
 export default User;

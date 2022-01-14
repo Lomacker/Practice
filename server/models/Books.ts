@@ -1,5 +1,6 @@
 import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize } from 'sequelize';
 import  db  from '../db';
+import Order from './Orders';
 
 interface IBook extends Model{
     id: number;
@@ -30,11 +31,11 @@ const Book = <BookType>db.define('books', {
     },
 
     bookName: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
     },
 
     author: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(90),
     },
 
     yearPublishing: {
@@ -42,11 +43,11 @@ const Book = <BookType>db.define('books', {
     },
 
     image: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(300),
     },
 
     status: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(45),
         allowNull: false,
         defaultValue: 'IN_STOCK'
     },
@@ -59,5 +60,7 @@ const Book = <BookType>db.define('books', {
         type: DataTypes.BIGINT,
     },
 });
+
+Book.belongsTo(Order, { as: 'order', foreignKey: 'id', onDelete:'SET NULL'});
 
 export default Book;
