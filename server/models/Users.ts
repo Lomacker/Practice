@@ -1,7 +1,6 @@
 import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize } from 'sequelize';
 import  db  from '../db';
 import Order from './Orders';
-
 interface IUser extends Model{
     id: number;
     firstName: string;
@@ -53,13 +52,13 @@ const User = <UserType>db.define('users', {
 
     createdAt: {
         type: DataTypes.BIGINT,
-      },
+    },
   
     updatedAt: {
         type: DataTypes.BIGINT,
     },
 });
 
-User.hasMany(Order, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
+User.hasMany(Order, { as: 'orders', sourceKey:'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
 
 export default User;

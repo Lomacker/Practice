@@ -60,7 +60,6 @@ const Book = <BookType>db.define('books', {
         type: DataTypes.BIGINT,
     },
 });
-
-Book.belongsTo(Order, { as: 'order', foreignKey: 'id', onDelete:'SET NULL'});
+// Book.belongsTo(Order, {as: 'books', foreignKey: 'id', onDelete:'SET NULL' });
 
 export default Book;
