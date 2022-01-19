@@ -1,10 +1,9 @@
 const db = require("../models").default;
-const User = db.users;
+const Order = db.orders;
 const Op = db.Sequelize.Op;
 
 export const findAll = (req, res) => {
-    console.log()
-    User.findAll()
+    Order.findAll()
         .then(data => {
             res.send(data);
         })
@@ -19,7 +18,7 @@ export const findAll = (req, res) => {
 export const findOne = (req, res) => {
     const id = req.params.id;
 
-    User.findByPk(id)
+    Order.findByPk(id)
         .then(data => {
             res.send(data);
         })
@@ -29,3 +28,4 @@ export const findOne = (req, res) => {
             });
         });
 };
+

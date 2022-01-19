@@ -9,6 +9,8 @@ import Order from "./models/Orders";
 import Book from "./models/Books";
 
 import UserRoute from "./routes/UserRoute";
+import OrderRoute from "./routes/OrderRoute";
+import BookRoute from "./routes/BookRoute";
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -35,6 +37,8 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
   
   server.use('/api/users', UserRoute);
+  server.use('/api/orders', OrderRoute);
+  //server.use('/api/books', BookRoute);
 
   /*server.get('/api/users', function (req, res) {
     console.log("dfgdfgdfg");
