@@ -4,9 +4,9 @@ import { Sequelize } from "sequelize";
 
 import bodyParser from "body-parser";
 
-import User from "./models/Users";
-import Order from "./models/Orders";
-import Book from "./models/Books";
+import User from "./models/UserModel";
+import Order from "./models/OrderModel";
+import Book from "./models/BookModel";
 
 import UserRoute from "./routes/UserRoute";
 import OrderRoute from "./routes/OrderRoute";
@@ -38,7 +38,7 @@ app.prepare().then(() => {
   
   server.use('/api/users', UserRoute);
   server.use('/api/orders', OrderRoute);
-  //server.use('/api/books', BookRoute);
+  server.use('/api/books', BookRoute);
 
   /*server.get('/api/users', function (req, res) {
     console.log("dfgdfgdfg");

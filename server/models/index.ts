@@ -1,30 +1,46 @@
-import { Sequelize } from 'sequelize';
-import mysql2 from "mysql2";
+import mysql2 from 'mysql2';
 import config from '../../config';
 
-function createSequelize() {
-    return new Sequelize(
-        config.db.database,
-        config.db.username,
-        config.db.password,
-        {
-            host: config.db.host,
-            dialect: config.db.dialect,
-            dialectModule: mysql2,
-        }
-    );
-    
+import { asFunction } from 'awilix';
+import { Sequelize } from 'sequelize';
+import { IContextContainer } from '../container';
+
+import User, { UserType } from './UserModel';
+import Order, { OrderType } from './OrderModel';
+import Book, { BookType } from './BookModel';
+
+export interface IModelContainer {
+    initModels: () => void;
+    User: UserType;
+    Order: OrderType;
+    Book: BookType;
 }
 
-const sequelize = createSequelize();
+const initModels = (ctx: IContextContainer) => {
+    const { User, Order, Book } = ctx;
+    return () => {
+        User.initModels();
+        Order.initModels();
+        Book.initModels();
+    }
+}
 
-const db: any = {};
+export default {
+    initModels: asFunction(initModels).singleton(),
+    User: asFunction(User).singleton(),
+    Order: asFunction(Order).singleton(),
+    Book: asFunction(Book).singleton(),
+}
 
-db['Sequelize'] = Sequelize;
-db['sequelize'] = sequelize;
 
-db['users'] = require('./Users').default(sequelize, Sequelize);
-db['orders'] = require('./Orders').default(sequelize, Sequelize);
-db['books']= require("./Books").default(sequelize, Sequelize);
 
-export default db;
+// const db: any = {};
+
+// db['Sequelize'] = Sequelize;
+// db['sequelize'] = sequelize;
+
+// db['users'] = require('./Users').default(sequelize, Sequelize);
+// db['orders'] = require('./Orders').default(sequelize, Sequelize);
+// db['books'] = require("./Books").default(sequelize, Sequelize);
+
+// export default db;

@@ -1,6 +1,6 @@
 import express from 'express';
 
-const router = express.Route();
+const router = express.Router();
 
 const books = require("../../server/controllers/BookController");
 
