@@ -1,4 +1,4 @@
-import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize, CITEXT } from 'sequelize';
+import { Model, DataTypes, BuildOptions } from 'sequelize';
 
 import { IContextContainer } from '../container';
 
@@ -62,9 +62,9 @@ export default (ctx: IContextContainer) => {
         },
     });
 
-    User.initModels = () => {
-        User.hasMany(ctx.Order, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
-    }
+    // User.initModels = () => {
+    //     User.hasMany(ctx.Order, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
+    // }
     return User;
 }
 

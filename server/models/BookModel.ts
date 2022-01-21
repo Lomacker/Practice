@@ -1,6 +1,4 @@
-import { Model, DataTypes, BuildOptions, EnumDataType, Sequelize } from 'sequelize';
-import db from '.';
-import Order from './OrderModel';
+import { Model, DataTypes, BuildOptions } from 'sequelize';
 
 import { IContextContainer } from '../container';
 

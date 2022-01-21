@@ -11,17 +11,17 @@ import Book, { BookType } from './BookModel';
 
 export interface IModelContainer {
     initModels: () => void;
-    User: UserType;
-    Order: OrderType;
-    Book: BookType;
+    UserModel: UserType;
+    OrderModel: OrderType;
+    BookModel: BookType;
 }
 
 const initModels = (ctx: IContextContainer) => {
-    const { User, Order, Book } = ctx;
+    const { UserModel, OrderModel, BookModel } = ctx;
     return () => {
-        User.initModels();
-        Order.initModels();
-        Book.initModels();
+        UserModel.initModels();
+        OrderModel.initModels();
+        BookModel.initModels();
     }
 }
 

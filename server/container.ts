@@ -1,19 +1,18 @@
-import awilix from 'awilix';
+import * as awilix from 'awilix';
 import mysql2 from 'mysql2';
+import coreConfig from '../config';
 
 import { Sequelize } from 'sequelize';
-import { IModelContainer } from './models';
+import modelContainer, { IModelContainer } from './models';
 
 export interface IContextContainer extends IModelContainer {
     config: any;
     db: Sequelize;
 }
 
-const container = awilix.createContainer<IContextContainer>(
-    {
-        injectionMode: awilix.InjectionMode.PROXY,
-    }
-);
+const container = awilix.createContainer<IContextContainer>({
+    injectionMode: awilix.InjectionMode.PROXY,
+});
 
 const createDB = (ctx: IContextContainer) => {
     return new Sequelize(
@@ -27,5 +26,11 @@ const createDB = (ctx: IContextContainer) => {
         }
     );
 }
+
+container.register({
+    ...modelContainer,
+    config: awilix.asValue(coreConfig),
+    db: awilix.asFunction(createDB).singleton(),
+});
 
 export default container;

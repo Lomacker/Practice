@@ -1,30 +1,22 @@
-const db = require("../models").default;
-const Book = db.books;
-const Op = db.Sequelize.Op;
+import { route, GET, POST } from 'awilix-express';
 
-export const findAll = (req, res) => {
-    Book.findAll()
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving tutorials."
+import BaseContext from '../BaseContext';
+
+@route('/api/books')
+export default class UserContoller extends BaseContext {
+    @route('/list')
+    @GET()
+    getAllUsers(req, res) {
+        const { BookModel } = this.di;
+        BookModel.findAll()
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving users."
+                });
             });
-        });
-};
-
-export const findOne = (req, res) => {
-    const id = req.params.id;
-
-    Book.findByPk(id)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error retrieving User with id=" + id
-            });
-        });
-};
+    }
+}
