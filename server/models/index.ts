@@ -5,9 +5,9 @@ import { asFunction } from 'awilix';
 import { Sequelize } from 'sequelize';
 import { IContextContainer } from '../container';
 
-import User, { UserType } from './UserModel';
-import Order, { OrderType } from './OrderModel';
-import Book, { BookType } from './BookModel';
+import UserModel, { UserType } from './UserModel';
+import OrderModel, { OrderType } from './OrderModel';
+import BookModel, { BookType } from './BookModel';
 
 export interface IModelContainer {
     initModels: () => void;
@@ -27,20 +27,7 @@ const initModels = (ctx: IContextContainer) => {
 
 export default {
     initModels: asFunction(initModels).singleton(),
-    User: asFunction(User).singleton(),
-    Order: asFunction(Order).singleton(),
-    Book: asFunction(Book).singleton(),
+    UserModel: asFunction(UserModel).singleton(),
+    OrderModel: asFunction(OrderModel).singleton(),
+    BookModel: asFunction(BookModel).singleton(),
 }
-
-
-
-// const db: any = {};
-
-// db['Sequelize'] = Sequelize;
-// db['sequelize'] = sequelize;
-
-// db['users'] = require('./Users').default(sequelize, Sequelize);
-// db['orders'] = require('./Orders').default(sequelize, Sequelize);
-// db['books'] = require("./Books").default(sequelize, Sequelize);
-
-// export default db;

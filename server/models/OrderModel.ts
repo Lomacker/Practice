@@ -46,9 +46,9 @@ export default (ctx: IContextContainer) => {
         },
     });
 
-    // Order.initModels = () => {
-    //     Order.hasMany(ctx.Book, { as: 'books', sourceKey: 'id', foreignKey: 'order_id', onDelete: 'SET NULL' });
-    // }
+    Order.initModels = () => {
+        Order.hasMany(ctx.BookModel, { as: 'books', sourceKey: 'id', foreignKey: 'order_id', onDelete: 'SET NULL' });
+    }
     return Order;
 }
 

@@ -62,8 +62,11 @@ export default (ctx: IContextContainer) => {
 			type: DataTypes.BIGINT,
 		},
 	});
-
+	
+	Book.initModels = () => {
+		Book.belongsTo(ctx.OrderModel, {as: 'books', foreignKey: 'id', onDelete:'SET NULL' });
+    }
 	return Book;
 }
 
-//Book.belongsTo(Order, {as: 'books', foreignKey: 'id', onDelete:'SET NULL' });
+//

@@ -6,7 +6,7 @@ import BaseContext from '../BaseContext';
 export default class UserContoller extends BaseContext {
     @route('/list')
     @GET()
-    getAllUsers(req, res) {
+    getAllBooks(req, res) {
         const { BookModel } = this.di;
         BookModel.findAll()
             .then(data => {
@@ -19,4 +19,21 @@ export default class UserContoller extends BaseContext {
                 });
             });
     }
+
+    @route('/:id')
+    @GET()
+    getOneBook(req, res) {
+        const { BookModel } = this.di;
+        const id = req.params.id;
+        BookModel.findByPk(id)
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message: "Error retrieving User with id=" + id
+                });
+            })
+    }
+
 }

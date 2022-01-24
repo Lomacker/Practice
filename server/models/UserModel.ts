@@ -19,7 +19,7 @@ export type UserType = typeof Model & {
 }
 
 export default (ctx: IContextContainer) => {
-    const User = <UserType>ctx.db.define('Users', {
+    const User = <UserType>ctx.db.define('users', {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -61,10 +61,10 @@ export default (ctx: IContextContainer) => {
             type: DataTypes.BIGINT,
         },
     });
-
-    // User.initModels = () => {
-    //     User.hasMany(ctx.Order, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
-    // }
+    
+    User.initModels = () => {
+        User.hasMany(ctx.OrderModel, { as: 'orders', sourceKey: 'id', foreignKey: 'user_id', onDelete: 'SET NULL' });
+    }
     return User;
 }
 
